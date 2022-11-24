@@ -14,8 +14,8 @@ group = "org.embulk"
 version = "0.8.3-SNAPSHOT"
 description = "Loads records from Mongodb."
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 tasks.withType(JavaCompile) {
     options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
