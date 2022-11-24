@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    tags:
+      - '**'
   pull_request:
 
 jobs:
@@ -17,3 +19,7 @@ jobs:
           distribution: "zulu"
       - run: ./gradlew gem
       - run: find .
+      - if: github.ref_type == 'tag'
+        run: gh release upload '${{ github.ref_name }}' build/gems/* build/libs/*
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
